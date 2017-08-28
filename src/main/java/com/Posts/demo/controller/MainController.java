@@ -116,13 +116,7 @@ public class MainController {
 	@RequestMapping(value = "/accederpost", method = RequestMethod.GET)
 	public String accederPost(Model model, @ModelAttribute("userSession") User user, @RequestParam Long id) {
 
-		Post pos = daoPost.findOne(id);
-		
-		model.addAttribute("titulo", pos.getTitulo());
-		model.addAttribute("fecha", pos.getFecha());
-		model.addAttribute("imagen", pos.getImgUrl());
-		model.addAttribute("todosLosComentarios", pos.getComentarios());
-		model.addAttribute("post", pos);
+		model.addAttribute("pos", daoPost.findOne(id));
 		return "listaComentarios";
 	}
 	
@@ -140,13 +134,8 @@ public class MainController {
 		//user.addComentario(com);
 		//daoUser.save(user);
 		
-		Post pos = post;
 		
-		model.addAttribute("titulo", pos.getTitulo());
-		model.addAttribute("fecha", pos.getFecha());
-		model.addAttribute("imagen", pos.getImgUrl());
-		model.addAttribute("todosLosComentarios", pos.getComentarios());
-		model.addAttribute("post", pos);
+		model.addAttribute("pos", daoPost.findOne(post.getId()));
 		return "listaComentarios";
 	}
 }
