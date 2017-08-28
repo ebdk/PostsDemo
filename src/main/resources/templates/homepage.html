@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+<title>Page Title</title>
+</head>
+
+<body>
+
+<h1>Forum</h1>
+
+<p>Logeate:</p>
+
+<form class="form-horizontal" action="#" th:action = "@{/loggeo}" th:object="${user}" method="post">
+
+<p><input type="hidden" th:field="*{id}" /> </p>
+<p>Name: <input type="text" th:field="*{username}" /> </p>
+<p>Pass: <input type="text" th:field="*{password}" /> </p>
+<p><input type="hidden" th:field="*{imgUrl}" /> </p>
+
+<p><input class="btn btn-primary" type="submit" value="Post" /> </p>
+
+</form>
+
+<h1 th:text="${mensaje}"></h1>
+
+</body>
+</html>

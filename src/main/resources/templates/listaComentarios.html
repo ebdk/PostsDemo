@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+<title>Page Title</title>
+</head>
+
+<body>
+
+<h1 th:text="${titulo}"></h1>
+<p th:text="${fecha}"></p>
+<img src="#" th:src="@{ ${imagen} }" width="180" height="180" /> 
+ 
+<p>Crear post:</p>
+<form class="form-horizontal" action="#" th:action = "@{/crearcomentario}" th:object="${post}" method="post">
+<p><input type="hidden" th:field="*{id}" /> </p>
+<p><input type="hidden" th:field="*{titulo}" /> </p>
+<p><input type="hidden" th:field="*{imgUrl}" /> </p>
+<p>Contenido: <input type="text" name="contenido" /> </p>
+<p><input class="btn btn-primary" type="submit" value="Comentar" /> </p>
+
+</form>
+
+
+
+
+<p>Posts:</p>
+<table class="table table-striped">
+<tr>
+	<th>-</th>
+	<th>Usuario</th>
+	<th>Fecha</th>
+	<th>Contenido</th>
+	
+</tr>
+<tr th:each="ayyyy:${todosLosComentarios}">
+	<td><img src="#" th:src="@{ ${ayyyy.getUser().getImgUrl()} }" width="50" height="50" /></td>
+	<td th:text="${ayyyy.getUser().getUsername()}"></td>
+	<td th:text="${ayyyy.getFecha()}"></td>
+	<td th:text="${ayyyy.getContenido()}"></td>
+</tr>
+</table>
+
+
+</body>
+</html>
