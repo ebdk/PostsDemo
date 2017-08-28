@@ -1,8 +1,19 @@
-# DataSource settings: set here your own configurations for the database
+README.md
 
-# connection. In this example we have "netgloo_blog" as database name and
+# Proyecto Maven echo con Spring.
 
-# "root" as username and password.
+# Idea de la App: 
+
+Una demo de Red Social al estilo "Forum" donde un usuario (con username, pass e imgURL) puede crear posts.
+
+Al Crear posts le invierte Titulo y Contenido. Al crearse recibe un primer comentario con el contenido dado.
+
+Desde la pagina se ve una lista de los posts con imagen, titulo, fecha y primer comentario. 
+
+Cualquier usuario logeado puede comentar en los posts.
+
+
+# Especificaciones: use mysql para la BBDD, por ende esta configurado de esta manera
 
 spring.datasource.url = jdbc:mysql://localhost:3307/redSocial?useSSL=false
 
@@ -10,42 +21,6 @@ spring.datasource.username = root
 
 spring.datasource.password = 1234
 
- 
+# Para empezar el proyecto, correr PostsApplicatin.java en un interprete de Java y abrir un navegador web en "localhost:8080"
 
-# Keep the connection alive if idle for a long time (needed in production)
-
-spring.datasource.testWhileIdle = true
-
-spring.datasource.validationQuery = SELECT 1
-
- 
-
-server.port=8080
-
-# Show or not log for each sql query
-
-spring.jpa.show-sql = true
-
- 
-
-# Hibernate ddl auto (create, create-drop, update)
-
-spring.jpa.hibernate.ddl-auto = update
-
- 
-
-# Naming strategy
-
-spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy
-
- 
-
-# Use spring.jpa.properties.* for Hibernate native properties (the prefix is
-
-# stripped before adding them to the entity manager)
-
- 
-
-# The SQL dialect makes Hibernate generate better SQL for the chosen database
-
-spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+# Creado por Esteban Bedecarats en el transcurso de un curso de Java.
