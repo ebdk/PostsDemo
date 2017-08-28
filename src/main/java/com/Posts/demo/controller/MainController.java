@@ -54,7 +54,9 @@ public class MainController {
 	
 	List<User> busquedaNombre = daoUser.findByusername(userN);
 	if(busquedaNombre.size()==0){
-		str = "Usuario no existe";
+		str = "Usuario no existia y fue creado existosamente";
+		User user2 = new User(userN,passW);
+		daoUser.save(user2);
 	} else {
 		User userExistente = busquedaNombre.get(0);
 		if(userExistente.getPassword().equals(passW)){
